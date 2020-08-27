@@ -16,14 +16,16 @@ class MyApp extends StatelessWidget{
         backgroundColor: Colors.pink[600],
       ),
       body: Center(
-        child: RaisedButton.icon(
-            onPressed: () {}, 
-            icon: Icon(
-              Icons.brightness_high,
-            ), 
-            label: Text( "Settings" ),
-            color: Colors.amber,
-            )
+        child: IconButton(
+          icon: Icon(
+             Icons.access_alarms
+          ), 
+          onPressed: () {
+            print( "Alarm has started in console..." );
+          },
+          iconSize: 100.0,
+          color: Colors.deepOrangeAccent,
+          )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
