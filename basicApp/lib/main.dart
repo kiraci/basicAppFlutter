@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget{
         backgroundColor: Colors.pink[600],
       ),
       body: Center(
-        child: Icon(
-          Icons.airline_seat_recline_extra,
-          color: Colors.blue[500],
-          size: 100.0
-        )
+        child: FlatButton(
+            onPressed: () {}, 
+            child: Text( "click me!"),
+            color: Colors.blueAccent,
+          )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
