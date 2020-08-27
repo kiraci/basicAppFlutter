@@ -1,4 +1,4 @@
-# basicApp
+# Basic Flutter App
 
 A new Flutter project.
 
