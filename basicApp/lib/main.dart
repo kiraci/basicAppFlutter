@@ -2,28 +2,27 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Scaffold(
+    home: MyApp(),
+  ));
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build( BuildContext context){
+    return Scaffold(
       appBar: AppBar(
-        title: Text("My First App"),
+        title: Text("My Fancy App"),
         centerTitle: true,
         backgroundColor: Colors.pink[600],
       ),
       body: Center(
-        child: Text(
-          "Hello Baby.",
-          style: TextStyle(
-            fontSize: 40.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey[600],
-            fontFamily: "IndieFlower",
-          ),
-        ),
+        child: Image.network("https://pm1.narvii.com/7044/4edeac26f2c95ea1e981e2acae69414900672216r1-1755-2048v2_hq.jpg"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Text("Click!"),
         backgroundColor: Colors.pink[600],
       ),
-    )
-  ));
+    );
+  }
 }
