@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget{
         backgroundColor: Colors.pink[600],
       ),
       body: Center(
-        child: Image.network("https://pm1.narvii.com/7044/4edeac26f2c95ea1e981e2acae69414900672216r1-1755-2048v2_hq.jpg"),
+        child: Icon(
+          Icons.airline_seat_recline_extra,
+          color: Colors.blue[500],
+          size: 100.0
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
