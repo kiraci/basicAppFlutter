@@ -13,20 +13,43 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     dataFromLoading = ModalRoute.of(context).settings.arguments;
-    print(dataFromLoading);
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget> [
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, "/location");
-              },
-              icon: Icon(Icons.edit_location),
-              label: Text("Change Location"),
-            )
-          ]
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 150.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget> [
+                FlatButton.icon(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/location");
+                  },
+                  icon: Icon(Icons.edit_location),
+                  label: Text("Change Location"),
+                  color: Colors.blue[100],
+                  padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                ),
+                SizedBox(height: 30.0),
+                Text(
+                  dataFromLoading["location"],
+                  style: TextStyle(
+                    fontFamily: "IndieFlower",
+                    fontSize: 35.0,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  dataFromLoading["time"],
+                  style: TextStyle(
+                    fontFamily: "IndieFlower",
+                    fontSize: 65.0,
+                  ),
+                ),
+              ]
+            ),
+          ),
         )
       ),
     );
