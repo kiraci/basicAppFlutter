@@ -6,7 +6,15 @@ void main() {
   ));
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatefulWidget{
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  int flutterLevel = 3;
+
   @override
   Widget build( BuildContext context){
     return Scaffold(
@@ -16,6 +24,21 @@ class MyApp extends StatelessWidget{
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            if( flutterLevel >= 10 ){
+              flutterLevel = 3;
+            }else{
+              flutterLevel++;
+            }
+          });
+        },
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(40.0, 50.0, 40.0, 0),
@@ -59,7 +82,7 @@ class MyApp extends StatelessWidget{
             ),
             SizedBox(height:10.0),
             Text(
-              "3 / 10",
+              "$flutterLevel / 10",
               style: TextStyle(
                 color: Colors.amberAccent,
                 letterSpacing: 2.0,
