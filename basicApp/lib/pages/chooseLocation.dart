@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'dart:convert';
+import 'package:http/http.dart';
 
 class ChooseLocation extends StatefulWidget {
   @override
@@ -8,30 +9,26 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  void getData() async {
+  void getTime() async {
 
-    String username = await Future.delayed(Duration(seconds: 3), () {
-      return "osman";
-    });
+    Response response = await get('http://worldtimeapi.org/api/timezone/Europe/Istanbul');
 
-    String password = await Future.delayed( Duration(seconds: 3), () {
-      return "osman123.";
-    });
+    Map data = jsonDecode(response.body);
 
-    if( username == "osman"  && password == "osman123."){
-      print("user logged in...");
-    }else{
-      print("user could not log in...");
-    }
+    String datetime = data['datetime'];
+    String offset = data['utc_offset'].substring(1,3);
 
-    print( '$username - $password' );
+    DateTime currentTime = DateTime.parse(datetime);
+    currentTime = currentTime.add(Duration(hours: int.parse(offset)));
+
+    print(currentTime);
 
   }
 
   @override
   void initState(){
     super.initState();
-    getData();
+    getTime();
   }
 
 
