@@ -12,10 +12,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-    dataFromLoading = ModalRoute.of(context).settings.arguments;
+    
+    dataFromLoading = dataFromLoading.isNotEmpty ? dataFromLoading : ModalRoute.of(context).settings.arguments;
+    print(dataFromLoading);
 
-    String bgImage = dataFromLoading['isDaytime'] ? "images/day.png" : "images/night.png";
-    Color topColor = dataFromLoading['isDaytime'] ? Colors.blue : Colors.indigo[700];
+    String bgImage = dataFromLoading['isDayTime'] ? "images/day.png" : "images/night.png";
+    Color topColor = dataFromLoading['isDayTime'] ? Colors.blue : Colors.indigo[700];
 
     return Scaffold(
       backgroundColor: topColor,
@@ -34,8 +36,16 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget> [
                   FlatButton.icon(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/location");
+                    onPressed: () async{
+                      dynamic result = await Navigator.pushNamed(context, "/location");
+                      setState(() {
+                        dataFromLoading = {
+                          "location": result['location'],
+                          "time": result['time'],
+                          "flag": result['flag'],
+                          'isDayTime': result['isDayTime']
+                        };
+                      });
                     },
                     icon: Icon(Icons.edit_location),
                     label: Text("Change Location"),

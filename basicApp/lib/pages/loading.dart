@@ -19,7 +19,7 @@ class _LoadingState extends State<Loading> {
       "location": istanbul.location,
       "time": istanbul.time,
       "flag": istanbul.flag,
-      "isDaytime": istanbul.isDayTime
+      "isDayTime": istanbul.isDayTime
     });
 
   }
