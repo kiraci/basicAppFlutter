@@ -15,20 +15,31 @@ class MyApp extends StatelessWidget{
         centerTitle: true,
         backgroundColor: Colors.pink[600],
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Text("Bu ilk yazı"),
-          FlatButton(
-            child: Text("Button"),
-            onPressed: () {},
-            color: Colors.amber[500],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text( "This is a row." )
+            ],
           ),
           Container(
-            child: Text("bu son"),
+            child: Text("Hello Flutter world"),
+            color: Colors.purple[300],
+            padding: EdgeInsets.all(20.0),
+            margin: EdgeInsets.only(top: 10.0),
+          ),Container(
+            child: Text("Hello world"),
+            color: Colors.purple[400],
             padding: EdgeInsets.all(30.0),
-            color: Colors.blue[500],
+            margin: EdgeInsets.only(top: 10.0),
+          ),Container(
+            child: Text(" world"),
+            color: Colors.purple[500],
+            padding: EdgeInsets.all(40.0),
+            margin: EdgeInsets.only(top: 10.0),
           ),
         ],
       ),
