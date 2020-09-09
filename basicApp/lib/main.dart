@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'names.dart';
+import 'namecard.dart';
 
 void main() => runApp(MaterialApp(
   home: QuoteList(),
@@ -25,35 +26,6 @@ class _QuoteListState extends State<QuoteList> {
     Names( property: "My friend", name: "Yahya"),
   ];
 
-  Widget nameTemplate( names ){
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget> [
-            Text(
-              names.property,
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 15.0
-              ),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              names.name,
-              style: TextStyle(
-                fontFamily: 'IndieFlower',
-                color: Colors.red,
-                fontSize: 25.0
-              ),
-            ),
-          ]
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +37,7 @@ class _QuoteListState extends State<QuoteList> {
       ),
       body: Center(
         child: Column(
-          children: names.map(( name ) => nameTemplate(name)).toList(),
+          children: names.map(( name ) => NameCard(names: name)).toList(),
         ),
       ),
     );
