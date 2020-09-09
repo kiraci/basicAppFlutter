@@ -15,17 +15,22 @@ class MyApp extends StatelessWidget{
         centerTitle: true,
         backgroundColor: Colors.pink[600],
       ),
-      body: Center(
-        child: IconButton(
-          icon: Icon(
-             Icons.access_alarms
-          ), 
-          onPressed: () {
-            print( "Alarm has started in console..." );
-          },
-          iconSize: 100.0,
-          color: Colors.deepOrangeAccent,
-          )
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text("Bu ilk yazı"),
+          FlatButton(
+            child: Text("Button"),
+            onPressed: () {},
+            color: Colors.amber[500],
+          ),
+          Container(
+            child: Text("bu son"),
+            padding: EdgeInsets.all(30.0),
+            color: Colors.blue[500],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
