@@ -18,7 +18,8 @@ class _LoadingState extends State<Loading> {
     Navigator.pushReplacementNamed(context, "/home", arguments: {
       "location": istanbul.location,
       "time": istanbul.time,
-      "flag": istanbul.flag
+      "flag": istanbul.flag,
+      "isDaytime": istanbul.isDayTime
     });
 
   }
