@@ -1,128 +1,42 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+void main() => runApp(MaterialApp(
+  home: QuoteList(),
+));
+
+
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
 }
 
-class MyApp extends StatefulWidget{
+class _QuoteListState extends State<QuoteList> {
+
+  List<String> names = [
+    "Osman",
+    "Buğra",
+    "Aydın",
+    "Çagatay",
+    "Kadir",
+    "Fatih",
+    "Doğan",
+    "Yahya"
+  ];
+
   @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-
-  int flutterLevel = 3;
-
-  @override
-  Widget build( BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[700],
       appBar: AppBar(
-        title: Text("Information Card"),
+        title: Text("Some Turkish Names"),
         centerTitle: true,
-        backgroundColor: Colors.grey[850],
-        elevation: 0.0,
+        backgroundColor: Colors.red[300],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          setState(() {
-            if( flutterLevel >= 10 ){
-              flutterLevel = 3;
-            }else{
-              flutterLevel++;
-            }
-          });
-        },
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(40.0, 50.0, 40.0, 0),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage( "images/profile.png" ),
-                radius: 40.0,
-              ),
-            ),
-            Divider(
-              height: 40.0,
-              color: Colors.red,
-            ),
-            Text( 
-              "NAME",
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0
-              ),
-            ),
-            SizedBox(height:10.0),
-            Text(
-              "Osman Buğra Aydın",
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 2.0,
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text( 
-              "FLUTTER LEVEL",
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0
-              ),
-            ),
-            SizedBox(height:10.0),
-            Text(
-              "$flutterLevel / 10",
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 2.0,
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox( height: 8.0,),
-            Text(
-              "- Beginner not because i am bad :)",
-              style: TextStyle(
-                color: Colors.amberAccent[700],
-                letterSpacing: 2.0,
-                fontSize: 12.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height:30.0),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.mail,
-                  color: Colors.blue,
-                ),
-                SizedBox(width: 10.0,),
-                Text(
-                  "osmanbugraaydin@gmail.com",
-                  style: TextStyle(
-                    fontFamily: "IndieFlower",
-                    letterSpacing: 2.0,
-                    fontSize: 20.0,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ],
+          children: names.map(( name ) => Container( child: Text( name ), margin: EdgeInsets.only(top: 30.0),) ).toList(),
         ),
-      )
+      ),
     );
   }
 }
