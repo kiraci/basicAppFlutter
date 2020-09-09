@@ -4,8 +4,9 @@ import 'names.dart';
 class NameCard extends StatelessWidget {
 
   final Names names; 
+  final Function delete;
 
-  NameCard({ this.names });
+  NameCard({ this.names, this.delete });
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,12 @@ class NameCard extends StatelessWidget {
                 fontSize: 25.0
               ),
             ),
+            SizedBox( height: 10.0),
+            FlatButton.icon(
+              onPressed: delete,
+              icon: Icon(Icons.delete),
+              label: Text("Delete this friend"),
+              ),
           ]
         ),
       ),

@@ -35,9 +35,18 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: true,
         backgroundColor: Colors.red[300],
       ),
-      body: Center(
-        child: Column(
-          children: names.map(( name ) => NameCard(names: name)).toList(),
+      body: SingleChildScrollView(
+              child: Center(
+          child: Column(
+            children: names.map(( name ) => NameCard(
+              names: name,
+              delete: () {
+                setState(() {
+                  names.remove(name);
+                });
+              },
+              )).toList(),
+          ),
         ),
       ),
     );
